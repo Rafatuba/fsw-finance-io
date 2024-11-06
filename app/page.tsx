@@ -13,7 +13,7 @@ const Home = () => {
         width={500}
         height={500}
       />
-      <Button>Hello World</Button>
+      <Button variant={"outline"}>Hello World</Button>
     </div>
   );
 };
