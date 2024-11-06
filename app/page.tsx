@@ -1,9 +1,22 @@
 import Image from "next/image";
 import { Button } from "./_components/ui/button";
+import { UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import { dark } from "@clerk/themes";
 
-const Home = () => {
+const Home = async () => {
+  const { userId } = await auth();
+  if (!userId) {
+    redirect("/login");
+  }
+
   return (
-    <div className="flex w-screen items-center justify-center">
+    <div className="flex h-full w-screen flex-col items-center justify-center">
+      <div className="solid rounded-xl border p-5">
+        <p className="mb-4 text-sm text-gray-400">Isso é do login</p>
+        <UserButton showName />
+      </div>
       <h1 className="p-5 text-4xl font-bold text-green-500">
         Eu gostaria de merendar!
       </h1>
@@ -13,7 +26,6 @@ const Home = () => {
         width={500}
         height={500}
       />
-      <Button variant={"outline"}>Hello World</Button>
     </div>
   );
 };
