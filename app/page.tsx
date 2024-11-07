@@ -13,6 +13,7 @@ const Home = async () => {
 
   return (
     <div className="flex h-full w-screen flex-col items-center justify-center">
+      <h1 className="p-5 text-4xl font-bold text-green-500">Página Inicial</h1>
       <div className="solid rounded-xl border p-5">
         <p className="mb-4 text-sm text-gray-400">Isso é do login</p>
         <UserButton showName />

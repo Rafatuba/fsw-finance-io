@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Mulish } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const mulish = Mulish({
+  subsets: ["latin-ext"],
 });
 
 export const metadata: Metadata = {
@@ -30,9 +23,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/icone.svg" type="image/svg" sizes="32x32" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}
-      >
+      <body className={`${mulish.className} dark antialiased`}>
         <ClerkProvider
           appearance={{
             baseTheme: dark,
